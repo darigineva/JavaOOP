@@ -1,0 +1,5 @@
+package JAVA.OOP.InterfacesAndAbstraction.DefineAnInterfacePerson;
+
+public interface Birthable {
+    String getBirthDate();
+}
