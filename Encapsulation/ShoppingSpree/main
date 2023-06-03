@@ -1,0 +1,51 @@
+package JAVA.OOP.Encapsulation.ShoppingSp;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        List<Person> costumers = new LinkedList<>();
+        String[] costumersData = scanner.nextLine().split(";");
+        for (int i = 0; i < costumersData.length; i++) {
+            String guyName = costumersData[i].split("=")[0];
+            double guyMoney = Double.parseDouble(costumersData[i].split("=")[1]);
+            Person person = new Person(guyName, guyMoney);
+            costumers.add(person);
+        }
+
+        List<Product> shop = new LinkedList<>();
+        String[] productsData = scanner.nextLine().split(";");
+        for (int i = 0; i < productsData.length; i++) {
+            String productName = productsData[i].split("=")[0];
+            double productCost = Double.parseDouble(productsData[i].split("=")[1]);
+            Product product = new Product(productName, productCost);
+            shop.add(product);
+        }
+
+        String[] commands = scanner.nextLine().split(" ");
+        while (!commands[0].equals("END")) {
+            String currentName = commands[0];
+            String currentProductName = commands[1];
+            Person currentCostumer = costumers.stream().filter(c -> c.getName().equals(currentName)).findFirst().orElse(null);
+            Product currentProduct = shop.stream().filter(p -> p.getName().equals(currentProductName)).findFirst().orElse(null);
+            try {
+                currentCostumer.buyProduct(currentProduct);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+            commands = scanner.nextLine().split(" ");
+        }
+        for (Person costumer : costumers) {
+            System.out.println(costumer.getName() + " - " +
+                    costumer.getProducts().stream()
+                            .map(Product::getName)
+                            .collect(Collectors.joining(", ")));
+        }
+
+    }
+}
