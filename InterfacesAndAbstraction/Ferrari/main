@@ -1,0 +1,20 @@
+package JAVA.OOP.InterfacesAndAbstraction.Ferrari;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String driver = scanner.nextLine();
+
+        Ferrari ferrari = new Ferrari(driver);
+
+        StringBuilder output = new StringBuilder();
+        output.append(ferrari.getModel())
+                .append("/").append(ferrari.brakes())
+                .append("/").append(ferrari.gas())
+                .append("/").append(driver);
+        System.out.println(output);
+    }
+}
