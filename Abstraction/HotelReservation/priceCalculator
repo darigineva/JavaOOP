@@ -1,0 +1,35 @@
+package JAVA.OOP.Abstraction.HotelReservation;
+
+public class PriceCalculator {
+    private double pricePerDay;
+    private int numberOfDays;
+    private Season season;
+    private DiscountType type;
+
+    public PriceCalculator(double pricePerDay, int numberOfDays, Season season, DiscountType type) {
+        this.pricePerDay = pricePerDay;
+        this.numberOfDays = numberOfDays;
+        this.season = season;
+        this.type = type;
+    }
+
+    public double getPricePerDay() {
+        return pricePerDay;
+    }
+
+    public int getNumberOfDays() {
+        return numberOfDays;
+    }
+
+    public Season getSeason() {
+        return season;
+    }
+
+    public DiscountType getType() {
+        return type;
+    }
+
+    public double calcPrice (){
+        return pricePerDay * numberOfDays * Season.getMultiplier(season) * DiscountType.countDiscount(type);
+    }
+}
