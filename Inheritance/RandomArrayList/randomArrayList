@@ -1,0 +1,14 @@
+package JAVA.OOP.Inheritance.RandomArrayList;
+
+import java.util.*;
+
+public class RandomArrayList extends ArrayList<Object> {
+
+    public Object getRandomElement() {
+        Random ran = new Random();
+        int index = ran.nextInt(super.size());
+        return remove(index);
+
+    }
+
+}
