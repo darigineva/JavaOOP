@@ -1,0 +1,17 @@
+package JAVA.OOP.Abstraction.CardsWithPower;
+
+public class Card {
+    private CardSuit cardSuit;
+    private CardRanks cardRanks;
+
+    public Card(CardSuit cardSuit, CardRanks cardRanks) {
+        this.cardSuit = cardSuit;
+        this.cardRanks = cardRanks;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Card name: %S of %S; Card power: %d"
+                , cardRanks.name(), cardSuit.name(), cardSuit.getPowerCardSuits() + cardRanks.getPowerCardRanks());
+    }
+}
