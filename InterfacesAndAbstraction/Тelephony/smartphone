@@ -1,0 +1,33 @@
+package JAVA.OOP.InterfacesAndAbstraction.Telephony;
+
+
+import java.util.List;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
+public class Smartphone implements Callable, Browsable {
+    private List<String> numbers;
+    private List<String> urls;
+
+    public Smartphone(List<String> numbers, List<String> urls) {
+        this.numbers = numbers;
+        this.urls = urls;
+    }
+
+    @Override
+    public String call() {
+        return String.format(numbers.stream()
+                .map(n -> Pattern.compile("[A-Za-z]").matcher(n).find() ? "Invalid number!" : ("Calling... " + n))
+                .collect(Collectors.joining("%n")));
+    }
+
+    @Override
+    public String browse() {
+        // Pattern.compile("[0-9]").matcher(b).find()
+        //b.matches("[0-9]")
+        boolean n = "iva9n".matches("[0-9]");
+        return String.format(urls.stream()
+                .map(b -> Pattern.compile("[0-9]").matcher(b).find() ? "Invalid URL!" : ("Browsing: " + b + "!"))
+                .collect(Collectors.joining("%n")));
+    }
+}
