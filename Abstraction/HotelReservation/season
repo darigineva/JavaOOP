@@ -1,0 +1,36 @@
+package JAVA.OOP.Abstraction.HotelReservation;
+
+public enum Season {
+    AUTUMN,
+    WINTER,
+    SPRING,
+    SUMMER;
+    public static Season parseSeason(String season) {
+        switch (season.toUpperCase()) {
+            case "AUTUMN":
+                return Season.AUTUMN;
+            case "WINTER":
+                return Season.WINTER;
+            case "SPRING":
+                return Season.SPRING;
+            case "SUMMER":
+                return Season.SUMMER;
+        }
+        return null;
+    }
+
+    public static int getMultiplier(Season season) {
+        switch (season){
+            case AUTUMN:
+                return 1;
+            case WINTER:
+                return 3;
+            case SPRING:
+                return 2;
+            case SUMMER:
+                return 4;
+            default:
+                return 0;
+        }
+    }
+}
