@@ -1,0 +1,8 @@
+package JAVA.OOP.InterfacesAndAbstraction.SayHello;
+
+public interface Person {
+    String getName();
+
+    String sayHello();
+
+}
