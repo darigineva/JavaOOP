@@ -1,0 +1,18 @@
+package JAVA.OOP.Inheritance.RandomArrayList;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        RandomArrayList list = new RandomArrayList();
+
+        list.add("13");
+        list.add("42");
+        list.add("69");
+
+        System.out.println(list.getRandomElement());
+
+    }
+}
