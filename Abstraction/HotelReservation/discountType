@@ -1,0 +1,31 @@
+package JAVA.OOP.Abstraction.HotelReservation;
+
+public enum DiscountType {
+    VIP,
+    SECOND_VISIT,
+    NONE,
+    ;
+
+    public static DiscountType parseDiscountType(String discountType) {
+        if (discountType.toUpperCase().equals("VIP")) {
+            return VIP;
+        } else if (discountType.equals("SecondVisit")) {
+            return SECOND_VISIT;
+        } else {
+            return NONE;
+        }
+    }
+
+    public static double countDiscount(DiscountType discountType){
+        switch (discountType){
+            case VIP:
+                return 0.8;
+            case SECOND_VISIT:
+                return 0.9;
+            case NONE:
+                return 1;
+            default:
+                return 0;
+        }
+    }
+}
