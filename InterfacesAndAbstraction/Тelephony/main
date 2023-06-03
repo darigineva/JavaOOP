@@ -1,0 +1,25 @@
+package JAVA.OOP.InterfacesAndAbstraction.Telephony;
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String[] inputNumbers = scanner.nextLine().split(" ");
+        String[] inputSites = scanner.nextLine().split(" ");
+        List<String> calls = new ArrayList<>();
+        List<String> urls = new ArrayList<>();
+        for (int i = 0; i < inputNumbers.length; i++) {
+            calls.add(inputNumbers[i]);
+        }
+        for (int i = 0; i < inputSites.length; i++) {
+            urls.add(inputSites[i]);
+        }
+        Smartphone smartphone = new Smartphone(calls, urls);
+
+        System.out.println(smartphone.call());
+        System.out.println(smartphone.browse());
+
+    }
+}
