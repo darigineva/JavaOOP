@@ -1,37 +1,29 @@
 package JAVA.OOP.InterfacesAndAbstraction.BorderControl;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+public class Robot implements Identifiable {
 
-public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    private String model;
 
-        List<Identifiable> idList = new ArrayList<>();
-
-        String[] input = scanner.nextLine().split(" ");
-
-        while (!"End".equals(input[0])) {
-            String id = input[input.length - 1];
-            if(input.length == 2){
-                Robot robot = new Robot(input[0], id);
-                idList.add(robot);
-            }else if(input.length == 3){
-                Citizen citizen = new Citizen(input[0], Integer.parseInt(input[1]), id);
-            idList.add(citizen);
-            }
-
-            input = scanner.nextLine().split(" ");
-        }
-        String idCheck = scanner.nextLine();
-//        int length = idCheck.length();
-        for (Identifiable s : idList) {
-            if (s.getId().endsWith(idCheck)) {
-                System.out.println(s.getId());
-            }
-        }
-//        idList.stream().filter(i -> i.endsWith(idCheck)).forEach(System.out::println);
+    private String id;
+    public Robot(String model, String id) {
+        setModel(model);
+        setId(id);
     }
 
+    private void setId(String id) {
+        this.id = id;
+    }
+
+    private void setModel(String model) {
+        this.model = model;
+    }
+
+    @Override
+    public String getId() {
+        return id;
+    }
+
+    public String getModel() {
+        return model;
+    }
 }
