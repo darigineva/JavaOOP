@@ -1,0 +1,11 @@
+package JAVA.OOP.Abstraction.Enums;
+
+public class Main {
+    public static void main(String[] args) {
+
+        System.out.println(Seasons.SUMMER.ordinal()); // prints index of object
+        System.out.println(Seasons.SUMMER); // prints toString()
+
+
+    }
+}
