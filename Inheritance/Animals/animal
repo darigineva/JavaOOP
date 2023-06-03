@@ -1,0 +1,8 @@
+package JAVA.OOP.Inheritance.Dog;
+
+public class Animal {
+    public void eat(){
+
+    System.out.println("eating...");
+    }
+}
