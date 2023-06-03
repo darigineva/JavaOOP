@@ -1,0 +1,11 @@
+package JAVA.OOP.InterfacesAndAbstraction.DefineAnInterfacePerson;
+
+public interface Person {
+    String getName();
+
+    int getAge();
+
+    String getBirthDate();
+
+    String getId();
+}
