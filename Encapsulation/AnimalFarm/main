@@ -1,0 +1,19 @@
+package JAVA.OOP.Encapsulation.AnimalFarm;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner((System.in));
+        String nameOfTheFChicken = sc.nextLine();
+        int age = Integer.parseInt(sc.nextLine());
+
+        try {
+            Chicken chick = new Chicken(nameOfTheFChicken, age);
+            System.out.println(chick);
+        }catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+        }
+
+    }
+}
