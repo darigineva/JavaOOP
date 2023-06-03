@@ -1,0 +1,54 @@
+package JAVA.OOP.Encapsulation.FootballTeamGenerator;
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        Map<String, Team> teams = new LinkedHashMap<>();
+        String[] input = scanner.nextLine().split(";");
+
+        while (!"END".equals(input[0])) {
+            try {
+                String command = input[0];
+                String teamName = input[1];
+                switch (command) {
+                    case "Team":
+                        Team team = new Team(teamName);
+                        teams.put(teamName, team);
+                        break;
+                    case "Add":
+                        if (!teams.containsKey(teamName)) {
+                            System.out.printf("Team %s does not exist.%n", teamName);
+                        } else {
+                            String playerName = input[2];
+                            int endurance = Integer.parseInt(input[3]);
+                            int sprint = Integer.parseInt(input[4]);
+                            int dribble = Integer.parseInt(input[5]);
+                            int passing = Integer.parseInt(input[6]);
+                            int shooting = Integer.parseInt(input[7]);
+                            Player newPlayer = new Player(playerName, endurance, sprint, dribble, passing, shooting);
+                            teams.get(teamName).addPlayer(newPlayer);
+                        }
+                        break;
+                    case "Remove":
+                            String playerToRemove = input[2];
+                            teams.get(teamName).removePlayer(playerToRemove);
+                        break;
+                    case "Rating":
+                        if (teams.containsKey(teamName)) {
+                            System.out.printf("%s - %d%n", teamName, Math.round(teams.get(teamName).getRating()));
+                        } else {
+                            System.out.printf("Team %s does not exist.%n", teamName);
+                        }
+                        break;
+                }
+            }
+            catch(IllegalArgumentException err){
+                System.out.println(err.getMessage());
+            }
+            input = scanner.nextLine().split(";");
+        }
+    }
+}
