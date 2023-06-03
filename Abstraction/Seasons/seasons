@@ -1,0 +1,36 @@
+package JAVA.OOP.Abstraction.Enums;
+
+public enum Seasons {
+    SUMMER ("Summer", 25, "July", "August"),
+    WINTER("Winter", 5, "December", "January"),
+    SPRING("Spring", 15, "April", "May"),
+    AUTUMN("Autumn", 10, "September", "October");
+
+    private String name;
+    private double averageTemperature;
+    private String [] months;
+
+    Seasons(String name, double averageTemperature, String... months) {
+        this.name = name;
+        this.averageTemperature = averageTemperature;
+        this.months = months;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getAverageTemperature() {
+        return averageTemperature;
+    }
+
+    public String[] getMonths() {
+        return months;
+    }
+
+    @Override
+
+    public String toString(){
+       return String.format("%s - average temperature is %.2f", getName(), getAverageTemperature());
+    }
+}
